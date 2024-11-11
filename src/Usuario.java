@@ -6,9 +6,9 @@ public class Usuario {
 	protected String nombre;
 	protected String dni;
 	protected String contrasena;
-	private static LinkedList<Usuario> usuarios;
-	private static LinkedList<Cliente> clientes;
-	private static LinkedList<Admin> administradores;
+	private static LinkedList<Usuario> usuarios=new LinkedList<Usuario>();
+	private static LinkedList<Cliente> clientes=new LinkedList<Cliente>();
+	private static LinkedList<Admin> administradores=new LinkedList<Admin>();
 
 	public Usuario(String nombre, String dni, String contrasena) {
 		super();
