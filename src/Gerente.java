@@ -21,9 +21,23 @@ public class Gerente extends Usuario {
 	}
 
 	public void Registrarse() {
-		
+		Banco banco = new Banco("Santender");
+		nombre = validarCaracteres("ingrese su nombre");
+		dni = validarCaracteres("ingrese su dni");
+		contrasena = validarCaracteres("ingrese su contraseña");
+
+		Gerente gerente = new Gerente(nombre, dni, contrasena, banco);
+		Usuario.getUsuarios().add(gerente);
 	}
+
 	public void RegistrarAdmin() {
-		
+		String nombre = validarCaracteres("ingrese el nombre del administrador");
+		String dni = validarCaracteres("ingrese el dni del administrador");
+		String contrasena = validarCaracteres("ingrese la contraseña del administrador");
+		int numero = (int) (Math.random() * 100);
+
+		Admin admin = new Admin(nombre, dni, contrasena, numero);
+		Usuario.getUsuarios().add(admin);
+		Usuario.getAdministradores().add(admin);
 	}
 }

@@ -3,9 +3,9 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 public class Usuario {
-	private String nombre;
-	private String dni;
-	private String contrasena;
+	protected String nombre;
+	protected String dni;
+	protected String contrasena;
 	private static LinkedList<Usuario> usuarios;
 	private static LinkedList<Cliente> clientes;
 	private static LinkedList<Admin> administradores;
