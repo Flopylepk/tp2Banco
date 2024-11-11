@@ -1,5 +1,5 @@
 
-public class Gerente extends Usuario{
+public class Gerente extends Usuario {
 	private Banco banco;
 
 	public Gerente(String nombre, String dni, String contrasena, Banco banco) {
@@ -20,5 +20,10 @@ public class Gerente extends Usuario{
 		return "Gerente [banco=" + banco + ", toString()=" + super.toString() + "]";
 	}
 
-	
+	public void Registrarse() {
+		
+	}
+	public void RegistrarAdmin() {
+		
+	}
 }
