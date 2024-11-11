@@ -23,10 +23,12 @@ public class Gerente extends Usuario {
 
 	public void Registrarse() {
 		Banco banco = new Banco("Santender");
-		nombre = validarCaracteres("ingrese su nombre");
-		dni = validarCaracteres("ingrese su dni");
-		contrasena = validarCaracteres("ingrese su contraseña");
-
+		String nombre = validarCaracteres("ingrese su nombre");
+		String dni = validarCaracteres("ingrese su dni");
+		String contrasena = validarCaracteres("ingrese su contraseña");
+		this.nombre=nombre;
+		this.dni=dni;
+		this.contrasena=contrasena;
 		Gerente gerente = new Gerente(nombre, dni, contrasena, banco);
 
 		Usuario.getUsuarios().add(gerente);

@@ -7,7 +7,7 @@ public class Main {
 		Banco banco = new Banco("");
 		Gerente gerente = new Gerente("", "", "", banco);
 		String[] menu = { "Gerente", "Admin", "Cliente", "Salir" };
-		String[] opciones = {"Admin", "Cliente", "Completa" };
+		String[] opciones = { "Admin", "Cliente", "Completa" };
 		String[] menug = { "Registrarse", "Registrar admin", "ver usuarios", "Salir" };
 		String[] menuc = { "Operaciones", "Ver Registro", "Ver operaciones", "Salir" };
 		String[] menua = { "Registrar Cliente", "Ver registro", "Salir" };
@@ -15,6 +15,7 @@ public class Main {
 		int opciong = 0;
 		int opcionc = 0;
 		int opciona = 0;
+		int opcions = 0;
 
 		do {
 			opcion = JOptionPane.showOptionDialog(null, "¿Elija una opción?", null, 0, 0, null, menu, menu[0]);
@@ -41,7 +42,32 @@ public class Main {
 					if (gerente.getNombre().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "usted no se registro");
 					} else {
-						
+						opcions = JOptionPane.showOptionDialog(null, "¿Qué qioere ver?", null, 0, 0, null, opciones,
+								opciones);
+						switch (opcions) {
+						case 0:
+							if (Usuario.getAdministradores().isEmpty()) {
+								JOptionPane.showMessageDialog(null, "No hay administradores");
+							} else {
+								JOptionPane.showMessageDialog(null, Usuario.getAdministradores());
+							}
+							break;
+						case 1:
+							if (Usuario.getClientes().isEmpty()) {
+								JOptionPane.showMessageDialog(null, "No hay Clientes");
+							} else {
+								JOptionPane.showMessageDialog(null, Usuario.getClientes());
+							}
+							break;
+						case 2:
+							if (Usuario.getUsuarios().isEmpty()) {
+								JOptionPane.showMessageDialog(null, "No hay Usuarios");
+							} else {
+								JOptionPane.showMessageDialog(null, Usuario.getUsuarios());
+							}
+							break;
+
+						}
 					}
 					break;
 
@@ -51,10 +77,10 @@ public class Main {
 				}
 				break;
 			case 1:
-
+				JOptionPane.showMessageDialog(null, "Admin");
 				break;
 			case 2:
-
+				JOptionPane.showMessageDialog(null, "Cliente");
 				break;
 			case 3:
 				JOptionPane.showMessageDialog(null, "Nos vemos pronto");

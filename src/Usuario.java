@@ -69,15 +69,14 @@ public class Usuario {
 	public String toString() {
 		return "Usuario [nombre=" + nombre + ", dni=" + dni + ", contrasena=" + contrasena + "]";
 	}
-	
-	
-	//validaciones
-	
+
+	// validaciones
+
 	public static int validarNumeros(String mensaje) {
-		boolean flag ;
-		String num ="" ;
+		boolean flag;
+		String num = "";
 		do {
-			flag =true;
+			flag = true;
 			num = JOptionPane.showInputDialog(mensaje);
 			while (num.isEmpty()) {
 				num = JOptionPane.showInputDialog(mensaje);
@@ -92,7 +91,7 @@ public class Usuario {
 
 		return Integer.parseInt(num);
 	}
-	
+
 	public String validarCaracteres(String mensaeje) {
 		String palabra = "";
 		while (palabra.equals("")) {
