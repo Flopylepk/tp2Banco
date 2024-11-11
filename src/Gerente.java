@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 
 public class Gerente extends Usuario {
 	private Banco banco;
@@ -27,6 +28,7 @@ public class Gerente extends Usuario {
 		contrasena = validarCaracteres("ingrese su contraseña");
 
 		Gerente gerente = new Gerente(nombre, dni, contrasena, banco);
+
 		Usuario.getUsuarios().add(gerente);
 	}
 
@@ -37,6 +39,24 @@ public class Gerente extends Usuario {
 		int numero = (int) (Math.random() * 100);
 
 		Admin admin = new Admin(nombre, dni, contrasena, numero);
+
+		for (Usuario item : Usuario.getUsuarios()) {
+			if (item.getNombre().equals(admin.getNombre()) && item.getDni().equals(admin.getDni())
+					&& item.getContrasena().equals(admin.getContrasena())) {
+
+				JOptionPane.showMessageDialog(null, "Ya existe ese usuario");
+				return;
+			}
+		}
+		for (Usuario item : Usuario.getAdministradores()) {
+			if (item.getNombre().equals(admin.getNombre()) && item.getDni().equals(admin.getDni())
+					&& item.getContrasena().equals(admin.getContrasena())) {
+
+				JOptionPane.showMessageDialog(null, "Ya existe ese Admin");
+				return;
+			}
+		}
+
 		Usuario.getUsuarios().add(admin);
 		Usuario.getAdministradores().add(admin);
 	}
