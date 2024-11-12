@@ -16,6 +16,12 @@ public class Usuario {
 		this.dni = dni;
 		this.contrasena = contrasena;
 	}
+	public Usuario(String nombre,   String contrasena) {
+		super();
+		this.nombre = nombre;
+	
+		this.contrasena = contrasena;
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -64,6 +70,15 @@ public class Usuario {
 	public static void setAdministradores(LinkedList<Admin> administradores) {
 		Usuario.administradores = administradores;
 	}
+	
+	public boolean login(boolean a) {
+		
+		
+		
+		return true;
+	}
+	
+	
 	public static int validarNumeros(String mensaje) {
 		boolean flag;
 		String num = "";
