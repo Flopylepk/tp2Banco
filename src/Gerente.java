@@ -46,7 +46,7 @@ public class Gerente extends Usuario {
 			if (item.getNombre().equals(admin.getNombre()) && item.getDni().equals(admin.getDni())
 					&& item.getContrasena().equals(admin.getContrasena())) {
 
-				JOptionPane.showMessageDialog(null, "Ya existe ese usuario");
+				JOptionPane.showMessageDialog(null, "Ya existe ese usuario llamado: "+nombre);
 				return;
 			}
 		}
@@ -54,7 +54,7 @@ public class Gerente extends Usuario {
 			if (item.getNombre().equals(admin.getNombre()) && item.getDni().equals(admin.getDni())
 					&& item.getContrasena().equals(admin.getContrasena())) {
 
-				JOptionPane.showMessageDialog(null, "Ya existe ese Admin");
+				JOptionPane.showMessageDialog(null, "Ya existe ese Admin llamado: "+nombre);
 				return;
 			}
 		}
