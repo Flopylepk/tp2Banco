@@ -3,12 +3,12 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 public class Usuario {
-	private String nombre;
-	private String dni;
-	private String contrasena;
-	private static LinkedList<Usuario> usuarios;
-	private static LinkedList<Cliente> clientes;
-	private static LinkedList<Admin> administradores;
+	protected String nombre;
+	protected String dni;
+	protected String contrasena;
+	private static LinkedList<Usuario> usuarios=new LinkedList<Usuario>();
+	private static LinkedList<Cliente> clientes=new LinkedList<Cliente>();
+	private static LinkedList<Admin> administradores=new LinkedList<Admin>();
 
 	public Usuario(String nombre, String dni, String contrasena) {
 		super();
@@ -110,6 +110,36 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [nombre=" + nombre + ", dni=" + dni + ", contrasena=" + contrasena + "]";
+	}
+
+	// validaciones
+
+	public static int validarNumeros(String mensaje) {
+		boolean flag;
+		String num = "";
+		do {
+			flag = true;
+			num = JOptionPane.showInputDialog(mensaje);
+			while (num.isEmpty()) {
+				num = JOptionPane.showInputDialog(mensaje);
+			}
+			for (int i = 0; i < num.length(); i++) {
+				if (!Character.isDigit(num.charAt(i))) {
+					flag = false;
+					break;
+				}
+			}
+		} while (!flag);
+
+		return Integer.parseInt(num);
+	}
+
+	public String validarCaracteres(String mensaeje) {
+		String palabra = "";
+		while (palabra.equals("")) {
+			palabra = JOptionPane.showInputDialog(mensaeje);
+		}
+		return palabra;
 	}
 
 }
