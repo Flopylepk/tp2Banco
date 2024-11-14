@@ -16,6 +16,10 @@ public class Usuario {
 		this.dni = dni;
 		this.contrasena = contrasena;
 	}
+
+	public Usuario() {
+		
+	}
 	public Usuario(String nombre,   String contrasena) {
 		super();
 		this.nombre = nombre;
@@ -112,34 +116,5 @@ public class Usuario {
 		return "Usuario [nombre=" + nombre + ", dni=" + dni + ", contrasena=" + contrasena + "]";
 	}
 
-	// validaciones
-
-	public static int validarNumeros(String mensaje) {
-		boolean flag;
-		String num = "";
-		do {
-			flag = true;
-			num = JOptionPane.showInputDialog(mensaje);
-			while (num.isEmpty()) {
-				num = JOptionPane.showInputDialog(mensaje);
-			}
-			for (int i = 0; i < num.length(); i++) {
-				if (!Character.isDigit(num.charAt(i))) {
-					flag = false;
-					break;
-				}
-			}
-		} while (!flag);
-
-		return Integer.parseInt(num);
-	}
-
-	public String validarCaracteres(String mensaeje) {
-		String palabra = "";
-		while (palabra.equals("")) {
-			palabra = JOptionPane.showInputDialog(mensaeje);
-		}
-		return palabra;
-	}
-
+	
 }

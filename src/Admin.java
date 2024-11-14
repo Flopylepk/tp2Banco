@@ -12,6 +12,10 @@ public class Admin extends Usuario {
 		super(nombre, contrasena);
 		NroAdmin = nroAdmin;
 	}
+	public Admin() {
+		super();
+	
+	}
 
 	public int getNroAdmin() {
 		return NroAdmin;
