@@ -8,7 +8,7 @@ public class Main {
 		Gerente gerente = new Gerente("", "", "", banco);
 		String[] menu = { "Gerente", "Admin", "Cliente", "Salir" };
 		String[] opciones = { "Admin", "Cliente", "Completa" };
-		String[] menug = { "Registrarse", "Registrar admin", "ver usuarios", "Salir" };
+		String[] menug = { "Registrarse", "Registrar admin", "Ver usuarios", "Salir" };
 		String[] menuc = { "Operaciones", "Ver Registro", "Ver operaciones", "Salir" };
 		String[] menua = { "Registrar Cliente", "Ver registro", "Salir" };
 		

@@ -23,9 +23,9 @@ public class Gerente extends Usuario {
 
 	public void Registrarse() {
 		Banco banco = new Banco("Santender");
-		String nombre = validarCaracteres("ingrese su nombre");
-		String dni = validarCaracteres("ingrese su dni");
-		String contrasena = validarCaracteres("ingrese su contraseña");
+		String nombre = validarCaracteres("Ingrese su nombre");
+		String dni = validarCaracteres("Ingrese su DNI");
+		String contrasena = validarCaracteres("Ingrese su contraseña");
 		this.nombre=nombre;
 		this.dni=dni;
 		this.contrasena=contrasena;
@@ -35,9 +35,9 @@ public class Gerente extends Usuario {
 	}
 
 	public void RegistrarAdmin() {
-		String nombre = validarCaracteres("ingrese el nombre del administrador");
-		String dni = validarCaracteres("ingrese el dni del administrador");
-		String contrasena = validarCaracteres("ingrese la contraseña del administrador");
+		String nombre = validarCaracteres("Ingrese el nombre del administrador");
+		String dni = validarCaracteres("Ingrese el DNI del administrador");
+		String contrasena = validarCaracteres("Ingrese la contraseña del administrador");
 		int numero = (int) (Math.random() * 100);
 
 		Admin admin = new Admin(nombre, dni, contrasena, numero);
