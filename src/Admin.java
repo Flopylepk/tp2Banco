@@ -24,9 +24,9 @@ public class Admin extends Usuario {
 
 	@Override
 	public boolean login(boolean a) {
-		String nombre = validarCaracteres(JOptionPane.showInputDialog("Ingrese el nombre del administrador:"));
-		String contrasena = validarCaracteres(JOptionPane.showInputDialog("Ingrese la contraseña:"));
-		int nroAdmin = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el número de administrador:"));
+		String nombre = validarCaracteres("Ingrese el nombre del administrador:");
+		String contrasena = validarCaracteres("Ingrese la contraseña:");
+		int nroAdmin = validarNumeros("Ingrese el número de administrador:");
 
 		Admin admin = new Admin(nombre, contrasena, nroAdmin);
 
@@ -47,9 +47,9 @@ public class Admin extends Usuario {
 	}
 
 	public void registrarCliente() {
-		String nombre = validarCaracteres("Ingrese el nombre del cliente: ");
-		String dni = validarCaracteres(JOptionPane.showInputDialog("Ingrese el DNI del cliente: "));
-		String contrasena = validarCaracteres("Ingrese la contraseña del cliente: ");
+		String nombre = validarCaracteres("Ingrese el nombre del cliente");
+		String dni = validarCaracteres("Ingrese el DNI del cliente");
+		String contrasena = validarCaracteres("Ingrese la contraseña del cliente");
 		String tipo = validarCaracteres("ingrese el tipo de cliente");
 		int nrocuenta = (int) (Math.random() * 200);
 		double saldo = validarNumeros("ingrese el saldo del cliente");
