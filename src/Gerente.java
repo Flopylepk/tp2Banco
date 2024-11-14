@@ -1,4 +1,6 @@
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
 
 public class Gerente extends Usuario {
 	private Banco banco;
@@ -24,7 +26,7 @@ public class Gerente extends Usuario {
 	public void Registrarse() {
 		Banco banco = new Banco("Santender");
 		String nombre = validarCaracteres("Ingrese su nombre");
-		String dni = validarCaracteres("Ingrese su DNI");
+		String dni = validarDni("Ingrese su DNI");
 		String contrasena = validarCaracteres("Ingrese su contraseña");
 		this.nombre=nombre;
 		this.dni=dni;
@@ -36,7 +38,7 @@ public class Gerente extends Usuario {
 
 	public void RegistrarAdmin() {
 		String nombre = validarCaracteres("Ingrese el nombre del administrador");
-		String dni = validarCaracteres("Ingrese el DNI del administrador");
+		String dni = validarDni("Ingrese el DNI del administrador");
 		String contrasena = validarCaracteres("Ingrese la contraseña del administrador");
 		int numero = (int) (Math.random() * 100);
 
@@ -46,7 +48,9 @@ public class Gerente extends Usuario {
 			if (item.getNombre().equals(admin.getNombre()) && item.getDni().equals(admin.getDni())
 					&& item.getContrasena().equals(admin.getContrasena())) {
 
-				JOptionPane.showMessageDialog(null, "Ya existe ese usuario llamado: "+nombre);
+				JOptionPane.showMessageDialog(null, "Ya existe ese usuario llamado: "+nombre, "Error",
+						JOptionPane.DEFAULT_OPTION,
+						new ImageIcon(Gerente.class.getResource("/img/xd.png")));
 				return;
 			}
 		}
@@ -54,7 +58,9 @@ public class Gerente extends Usuario {
 			if (item.getNombre().equals(admin.getNombre()) && item.getDni().equals(admin.getDni())
 					&& item.getContrasena().equals(admin.getContrasena())) {
 
-				JOptionPane.showMessageDialog(null, "Ya existe ese Admin llamado: "+nombre);
+				JOptionPane.showMessageDialog(null, "Ya existe ese Admin llamado: "+nombre, "Error",
+						JOptionPane.DEFAULT_OPTION,
+						new ImageIcon(Gerente.class.getResource("/img/xd.png")));
 				return;
 			}
 		}

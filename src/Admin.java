@@ -1,3 +1,4 @@
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Admin extends Usuario {
@@ -45,14 +46,16 @@ public class Admin extends Usuario {
 			}
 
 		}
-		JOptionPane.showMessageDialog(null, "Algo se ingreso incorrectamente");
+		JOptionPane.showMessageDialog(null, "Algo se ingreso incorrectamente", "Error",
+				JOptionPane.DEFAULT_OPTION,
+				new ImageIcon(Admin.class.getResource("/img/xd.png")));
 		a = false;
 		return a;
 	}
 
 	public void registrarCliente() {
 		String nombre = validarCaracteres("Ingrese el nombre del cliente");
-		String dni = validarCaracteres("Ingrese el DNI del cliente");
+		String dni = validarDni("Ingrese el DNI del cliente");
 		String contrasena = validarCaracteres("Ingrese la contraseña del cliente");
 		String tipo = validarCaracteres("ingrese el tipo de cliente");
 		int nrocuenta = (int) (Math.random() * 200);
@@ -67,7 +70,9 @@ public class Admin extends Usuario {
 			if (clienteExistente.getNombre().equalsIgnoreCase(cliente.getNombre())
 					&& clienteExistente.getDni().equals(cliente.getDni())
 					&& clienteExistente.getCuenta().getTarjeta().equals(cliente.getCuenta().getTarjeta())) {
-				JOptionPane.showMessageDialog(null, "El cliente  " + cliente.getNombre() + " ya está registrado.");
+				JOptionPane.showMessageDialog(null, "El cliente  " + cliente.getNombre() + " ya está registrado.", "Error",
+						JOptionPane.DEFAULT_OPTION,
+						new ImageIcon(Admin.class.getResource("/img/xd.png")));
 				return;
 			}
 		}

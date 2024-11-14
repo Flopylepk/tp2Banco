@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class Usuario {
@@ -76,9 +77,7 @@ public class Usuario {
 	}
 	
 	public boolean login(boolean a) {
-		
-		
-		
+	
 		return true;
 	}
 	
@@ -108,6 +107,33 @@ public class Usuario {
 		while (palabra.equals("")) {
 			palabra = JOptionPane.showInputDialog(mensaeje);
 		}
+		return palabra;
+	}
+	public static String validarDni(String mensaeje) {
+		String palabra = "";
+		boolean flag;
+		int cont=0;
+		do {
+			flag=true;
+			palabra = JOptionPane.showInputDialog(mensaeje);
+			while (palabra.equals("")) {
+			palabra = JOptionPane.showInputDialog("Error: "+mensaeje);
+			}
+		
+			for (int i = 0; i < palabra.length(); i++) {
+				if (!Character.isDigit(palabra.charAt(i))) {
+					flag=false;
+				}
+					break;
+				}
+			if (palabra.length()<6) {
+				JOptionPane.showMessageDialog(null, "El DNI debe ser de más de 6 digitos", "Error",
+						JOptionPane.DEFAULT_OPTION,
+						new ImageIcon(Gerente.class.getResource("/img/x.jpg")));
+				flag=false;
+			}
+		} while (!flag);
+		
 		return palabra;
 	}
 
