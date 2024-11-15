@@ -41,8 +41,10 @@ public class Admin extends Usuario {
 			if (adminExistente.getNombre().equalsIgnoreCase(admin.getNombre())
 					&& adminExistente.getContrasena().equals(admin.getContrasena())
 					&& adminExistente.getNroAdmin() == admin.getNroAdmin()) {
-				JOptionPane.showMessageDialog(null,
-						"Bienvenido " + admin.getNombre() + "su inicio de secion fue exitoso");
+				JOptionPane.showMessageDialog(null, "Bienvenido " + admin.getNombre() + " su inicio de seción fue exitoso", "Correcto",
+						JOptionPane.DEFAULT_OPTION,
+						new ImageIcon(Admin.class.getResource("/img/log.png")));
+				
 				a = true;
 				return a;
 			}
@@ -80,7 +82,9 @@ public class Admin extends Usuario {
 		}
 
 		Usuario.getClientes().add(cliente);
-		JOptionPane.showMessageDialog(null, "Cliente registrado exitosamente: " + cliente.getNombre());
+		JOptionPane.showMessageDialog(null, "Cliente registrado exitosamente: " + cliente.getNombre(), "Correcto",
+				JOptionPane.DEFAULT_OPTION,
+				new ImageIcon(Admin.class.getResource("/img/ok.png")));
 
 	}
 

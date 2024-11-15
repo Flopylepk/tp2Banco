@@ -67,5 +67,8 @@ public class Gerente extends Usuario {
 
 		Usuario.getUsuarios().add(admin);
 		Usuario.getAdministradores().add(admin);
+		JOptionPane.showMessageDialog(null, "El admin fue registrado correctamente: " + admin.getNombre(), "Correcto",
+				JOptionPane.DEFAULT_OPTION,
+				new ImageIcon(Admin.class.getResource("/img/ok.png")));
 	}
 }

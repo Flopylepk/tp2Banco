@@ -27,12 +27,14 @@ public class Main {
 		boolean cl = false;
 
 		do {
-			opcion = JOptionPane.showOptionDialog(null, "¿Elija una opción?", null, 0, 0, null, menu, menu[0]);
+			opcion = JOptionPane.showOptionDialog(null, "¿Elija una opción?", "Menú", JOptionPane.DEFAULT_OPTION, 0,
+					new ImageIcon(Main.class.getResource("/img/santan.png")), menu, menu[0]);
 			switch (opcion) {
 			case 0:
 				do {
-					opciong = JOptionPane.showOptionDialog(null, "¿Elija una opción?", null, 0, 0, null, menug,
-							menug[0]);
+					opciong = JOptionPane.showOptionDialog(null, "¿Elija una opción?", "Menú gerente",
+							JOptionPane.DEFAULT_OPTION, 0, new ImageIcon(Main.class.getResource("/img/gere.png")),
+							menug, menug[0]);
 					switch (opciong) {
 					case 0:
 						if (gerente.getNombre().isEmpty()) {
@@ -55,8 +57,9 @@ public class Main {
 							JOptionPane.showMessageDialog(null, "Usted no se registró", "Error",
 									JOptionPane.DEFAULT_OPTION, new ImageIcon(Main.class.getResource("/img/xd.png")));
 						} else {
-							opcions = JOptionPane.showOptionDialog(null, "¿Qué le gustaría ver?", null, 0, 0, null,
-									opciones, opciones);
+							opcions = JOptionPane.showOptionDialog(null, "¿Qué le gustaría ver?", "Menú gerente",
+									JOptionPane.DEFAULT_OPTION, 0,
+									new ImageIcon(Main.class.getResource("/img/gere.png")), opciones, opciones);
 							switch (opcions) {
 							case 0:
 								if (Usuario.getAdministradores().isEmpty()) {
@@ -91,7 +94,8 @@ public class Main {
 						break;
 
 					case 3:
-						JOptionPane.showMessageDialog(null, "Nos vemos la proxima");
+						JOptionPane.showMessageDialog(null, "Nos vemos la proxima", "Salida",
+								JOptionPane.DEFAULT_OPTION, new ImageIcon(Admin.class.getResource("/img/chau.png")));
 						break;
 
 					}
@@ -105,8 +109,9 @@ public class Main {
 							new ImageIcon(Main.class.getResource("/img/xd.png")));
 				} else {
 					do {
-						opciona = JOptionPane.showOptionDialog(null, "¿Elija una opción?", null, 0, 0, null, menua,
-								menua[0]);
+						opciona = JOptionPane.showOptionDialog(null, "¿Elija una opción?", "Menú administrador",
+								JOptionPane.DEFAULT_OPTION, 0, new ImageIcon(Main.class.getResource("/img/adm.png")),
+								menua, menua[0]);
 						switch (opciona) {
 						case 0:
 							if (ad == false) {
@@ -133,7 +138,8 @@ public class Main {
 							}
 							break;
 						case 2:
-							JOptionPane.showMessageDialog(null, "Nos vemos la proxima");
+							JOptionPane.showMessageDialog(null, "Nos vemos la proxima", "Salida",
+									JOptionPane.DEFAULT_OPTION, new ImageIcon(Admin.class.getResource("/img/chau.png")));
 							break;
 
 						}
@@ -147,12 +153,14 @@ public class Main {
 					JOptionPane.showMessageDialog(null, "el logueo fue erroneo", "Error", JOptionPane.DEFAULT_OPTION,
 							new ImageIcon(Main.class.getResource("/img/xd.png")));
 				} else {
-					opcionc = JOptionPane.showOptionDialog(null, "Elija la opcion que quiere realizar", null, 0, 0,
-							null, menuc, menuc[0]);
+					opcionc = JOptionPane.showOptionDialog(null, "Elija la opcion que quiere realizar", "Menú cliente",
+							JOptionPane.DEFAULT_OPTION, 0, new ImageIcon(Main.class.getResource("/img/clie.png")),
+							menuc, menuc[0]);
 					switch (opcionc) {
 					case 0:
-						opciono = JOptionPane.showOptionDialog(null, "Elija que operacion quiere hacer", null, 0, 0,
-								null, Opciones.values(), Opciones.values());
+						opciono = JOptionPane.showOptionDialog(null, "Elija que operacion quiere hacer", "Operaciones",
+								JOptionPane.DEFAULT_OPTION, 0, new ImageIcon(Main.class.getResource("/img/opera.png")),
+								Opciones.values(), Opciones.values());
 						switch (opciono) {
 						case 0:
 							cliente.Transferir();
@@ -170,14 +178,17 @@ public class Main {
 						cliente.Mostrar();
 						break;
 					case 2:
-						JOptionPane.showMessageDialog(null, "nos vemos la proxima");
+
+						JOptionPane.showMessageDialog(null, "Nos vemos la proxima", "Salida",
+								JOptionPane.DEFAULT_OPTION, new ImageIcon(Admin.class.getResource("/img/chau.png")));
 						break;
 
 					}
 				}
 				break;
 			case 3:
-				JOptionPane.showMessageDialog(null, "Nos vemos pronto");
+				JOptionPane.showMessageDialog(null, "Nos vemos la proxima", "Salida",
+						JOptionPane.DEFAULT_OPTION, new ImageIcon(Admin.class.getResource("/img/chau.png")));
 
 			}
 		} while (opcion != 3);

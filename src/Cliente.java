@@ -53,8 +53,9 @@ public class Cliente extends Usuario {
 					&& clienteExistente.getContrasena().equals(cliente.getContrasena())){
 				this.nombre=nombre;
 				this.contrasena=contrasena;
-				JOptionPane.showMessageDialog(null,
-						"Bienvenido " + cliente.getNombre() + "su inicio de secion fue exitoso");
+				JOptionPane.showMessageDialog(null, "Bienvenido " + cliente.getNombre() + " su inicio de secion fue exitoso", "Correcto",
+						JOptionPane.DEFAULT_OPTION,
+						new ImageIcon(Admin.class.getResource("/img/log.png")));
 				a = true;
 				return a;
 			}
@@ -75,7 +76,9 @@ public class Cliente extends Usuario {
 				String nombre=validarCaracteres("ingrese el nombre del usuario");
 				for (Cliente item2 : Usuario.getClientes()) {
 					if (item.getNombre().equals(nombre)) {
-						JOptionPane.showMessageDialog(null, "la transaccion es correcta");
+						JOptionPane.showMessageDialog(null, "la transaccion es correcta", "Correcto",
+								JOptionPane.DEFAULT_OPTION,
+								new ImageIcon(Admin.class.getResource("/img/ok.png")));
 						double monto=validarNumeros("ingrese el monto que quiere transferir");
 						item.cuenta.setSaldo(item.cuenta.getSaldo()-monto);
 						LocalDateTime hora=LocalDateTime.now();
