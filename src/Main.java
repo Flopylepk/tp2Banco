@@ -153,6 +153,9 @@ public class Main {
 					JOptionPane.showMessageDialog(null, "el logueo fue erroneo", "Error", JOptionPane.DEFAULT_OPTION,
 							new ImageIcon(Main.class.getResource("/img/xd.png")));
 				} else {
+					do {
+						
+					
 					opcionc = JOptionPane.showOptionDialog(null, "Elija la opcion que quiere realizar", "Menú cliente",
 							JOptionPane.DEFAULT_OPTION, 0, new ImageIcon(Main.class.getResource("/img/clie.png")),
 							menuc, menuc[0]);
@@ -184,6 +187,7 @@ public class Main {
 						break;
 
 					}
+					} while (opcionc!=2);
 				}
 				break;
 			case 3:

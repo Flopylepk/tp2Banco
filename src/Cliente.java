@@ -43,7 +43,7 @@ public class Cliente extends Usuario {
 	
 	@Override
 	public boolean login(boolean a) {
-		String nombre = validarCaracteres("Ingrese el nombre del administrador:");
+		String nombre = validarCaracteres("Ingrese el nombre del cliente:");
 		String contrasena = validarCaracteres("Ingrese la contraseña:");
 
 		Cliente cliente = new Cliente(nombre, contrasena);
