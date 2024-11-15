@@ -51,5 +51,8 @@ public class Cuenta {
 		return "Cuenta [nroCuenta=" + nroCuenta + ", saldo=" + saldo + ", tarjeta=" + tarjeta + ", movimientos="
 				+ movimientos + "]";
 	}
+	
+	
+
 
 }

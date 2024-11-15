@@ -8,20 +8,23 @@ public class Main {
 		Banco banco = new Banco("");
 		Gerente gerente = new Gerente("", "", "", banco);
 		Admin admin = new Admin();
-		
+		Cliente cliente = new Cliente();
+
 		String[] menu = { "Gerente", "Admin", "Cliente", "Salir" };
 		String[] opciones = { "Admin", "Cliente", "Completa" };
 		String[] menug = { "Registrarse", "Registrar admin", "Ver usuarios", "Salir" };
-		String[] menua = { "Registrar Cliente","Ver Cliente" ,"Salir" };
-		String[] menuc = { "Operaciones", "Ver Registro", "Ver operaciones", "Salir" };
-		
+		String[] menua = { "Registrar Cliente", "Ver Cliente", "Salir" };
+		String[] menuc = { "Operaciones", "Ver operaciones", "Salir" };
+
 		int opcion = 0;
 		int opciong = 0;
 		int opcionc = 0;
 		int opciona = 0;
 		int opcions = 0;
-		
-		boolean ad=false;
+		int opciono = 0;
+
+		boolean ad = false;
+		boolean cl = false;
 
 		do {
 			opcion = JOptionPane.showOptionDialog(null, "¿Elija una opción?", null, 0, 0, null, menu, menu[0]);
@@ -36,15 +39,13 @@ public class Main {
 							gerente.Registrarse();
 						} else {
 							JOptionPane.showMessageDialog(null, "Usted ya se registró", "Error",
-									JOptionPane.DEFAULT_OPTION,
-									new ImageIcon(Main.class.getResource("/img/xd.png")));
+									JOptionPane.DEFAULT_OPTION, new ImageIcon(Main.class.getResource("/img/xd.png")));
 						}
 						break;
 					case 1:
 						if (gerente.getNombre().isEmpty()) {
 							JOptionPane.showMessageDialog(null, "Usted no se registró", "Error",
-									JOptionPane.DEFAULT_OPTION,
-									new ImageIcon(Main.class.getResource("/img/xd.png")));
+									JOptionPane.DEFAULT_OPTION, new ImageIcon(Main.class.getResource("/img/xd.png")));
 						} else {
 							gerente.RegistrarAdmin();
 						}
@@ -52,11 +53,10 @@ public class Main {
 					case 2:
 						if (gerente.getNombre().isEmpty()) {
 							JOptionPane.showMessageDialog(null, "Usted no se registró", "Error",
-									JOptionPane.DEFAULT_OPTION,
-									new ImageIcon(Main.class.getResource("/img/xd.png")));
+									JOptionPane.DEFAULT_OPTION, new ImageIcon(Main.class.getResource("/img/xd.png")));
 						} else {
-							opcions = JOptionPane.showOptionDialog(null, "¿Qué le gustaría ver?", null, 0, 0, null, opciones,
-									opciones);
+							opcions = JOptionPane.showOptionDialog(null, "¿Qué le gustaría ver?", null, 0, 0, null,
+									opciones, opciones);
 							switch (opcions) {
 							case 0:
 								if (Usuario.getAdministradores().isEmpty()) {
@@ -93,16 +93,15 @@ public class Main {
 					case 3:
 						JOptionPane.showMessageDialog(null, "Nos vemos la proxima");
 						break;
-						
+
 					}
-				} while (opciong!=3);
+				} while (opciong != 3);
 				break;
 
 			case 1:
-				ad=admin.login(ad);
-				if (ad==false) {
-					JOptionPane.showMessageDialog(null, "el logueo fue erroneo", "Error",
-							JOptionPane.DEFAULT_OPTION,
+				ad = admin.login(ad);
+				if (ad == false) {
+					JOptionPane.showMessageDialog(null, "el logueo fue erroneo", "Error", JOptionPane.DEFAULT_OPTION,
 							new ImageIcon(Main.class.getResource("/img/xd.png")));
 				} else {
 					do {
@@ -110,7 +109,7 @@ public class Main {
 								menua[0]);
 						switch (opciona) {
 						case 0:
-							if (ad==false) {
+							if (ad == false) {
 								JOptionPane.showMessageDialog(null, "Usted debe loguerse primero", "Error",
 										JOptionPane.DEFAULT_OPTION,
 										new ImageIcon(Main.class.getResource("/img/xd.png")));
@@ -119,7 +118,7 @@ public class Main {
 							}
 							break;
 						case 1:
-							if (ad==false) {
+							if (ad == false) {
 								JOptionPane.showMessageDialog(null, "Usted debe loguerse primero", "Error",
 										JOptionPane.DEFAULT_OPTION,
 										new ImageIcon(Main.class.getResource("/img/xd.png")));
@@ -136,24 +135,52 @@ public class Main {
 						case 2:
 							JOptionPane.showMessageDialog(null, "Nos vemos la proxima");
 							break;
-							
-						
+
 						}
-					} while (opciona!=3);
+					} while (opciona != 3);
 				}
-				
+
 				break;
 			case 2:
-				JOptionPane.showMessageDialog(null, "Cliente");
+				cl = cliente.login(cl);
+				if (cl == false) {
+					JOptionPane.showMessageDialog(null, "el logueo fue erroneo", "Error", JOptionPane.DEFAULT_OPTION,
+							new ImageIcon(Main.class.getResource("/img/xd.png")));
+				} else {
+					opcionc = JOptionPane.showOptionDialog(null, "Elija la opcion que quiere realizar", null, 0, 0,
+							null, menuc, menuc[0]);
+					switch (opcionc) {
+					case 0:
+						opciono = JOptionPane.showOptionDialog(null, "Elija que operacion quiere hacer", null, 0, 0,
+								null, Opciones.values(), Opciones.values());
+						switch (opciono) {
+						case 0:
+							cliente.Transferir();
+							break;
+						case 1:
+							cliente.Depositar();
+							break;
+						case 2:
+							cliente.Retirar();
+							break;
+
+						}
+						break;
+					case 1:
+						cliente.Mostrar();
+						break;
+					case 2:
+						JOptionPane.showMessageDialog(null, "nos vemos la proxima");
+						break;
+
+					}
+				}
 				break;
 			case 3:
 				JOptionPane.showMessageDialog(null, "Nos vemos pronto");
-				break;
 
-			
 			}
 		} while (opcion != 3);
-				
-		
+
 	}
 }

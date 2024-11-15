@@ -24,7 +24,6 @@ public class Usuario {
 	public Usuario(String nombre,   String contrasena) {
 		super();
 		this.nombre = nombre;
-	
 		this.contrasena = contrasena;
 	}
 
