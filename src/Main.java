@@ -137,7 +137,7 @@ public class Main {
 							break;
 
 						}
-					} while (opciona != 3);
+					} while (opciona != 2);
 				}
 
 				break;

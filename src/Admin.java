@@ -26,6 +26,8 @@ public class Admin extends Usuario {
 		NroAdmin = nroAdmin;
 
 	}
+	
+	
 
 	@Override
 	public boolean login(boolean a) {
@@ -84,7 +86,7 @@ public class Admin extends Usuario {
 
 	@Override
 	public String toString() {
-		return "Admin [NroAdmin=" + NroAdmin + ", toString()=" + super.toString() + "]";
+		return "Admin [NroAdmin=" + NroAdmin + ", toString()=" + super.toString() + "] \n";
 	}
 
 }

@@ -38,7 +38,7 @@ public class Cliente extends Usuario {
 
 	@Override
 	public String toString() {
-		return "Cliente [tipo=" + tipo + ", cuenta=" + cuenta + ", toString()=" + super.toString() + "]";
+		return "Cliente [tipo=" + tipo + ", cuenta=" + cuenta + ", toString()=" + super.toString() + "] \n";
 	}
 	
 	@Override
@@ -77,7 +77,7 @@ public class Cliente extends Usuario {
 					if (item.getNombre().equals(nombre)) {
 						JOptionPane.showMessageDialog(null, "la transaccion es correcta");
 						double monto=validarNumeros("ingrese el monto que quiere transferir");
-						item.cuenta.setSaldo(this.cuenta.getSaldo()-monto);
+						item.cuenta.setSaldo(item.cuenta.getSaldo()-monto);
 						LocalDateTime hora=LocalDateTime.now();
 						detalles= "Banco: Santender \n "
 								+ "Monto: "+ monto+"\n "
@@ -115,7 +115,7 @@ public class Cliente extends Usuario {
 				
 				double monto=validarNumeros("ingrese el monto que quiere retirar");
 					JOptionPane.showMessageDialog(null, "la transaccion es correcta");
-					item.cuenta.setSaldo(this.cuenta.getSaldo()+monto);
+					item.cuenta.setSaldo(item.cuenta.getSaldo()+monto);
 					LocalDateTime hora=LocalDateTime.now();
 					detalles= "Banco: Santender \n "
 							+ "Monto: "+ monto+"\n "
@@ -134,7 +134,7 @@ public class Cliente extends Usuario {
 				double monto=validarNumeros("ingrese el monto que quiere retirar");
 				if (monto<item.cuenta.getSaldo()) {
 					JOptionPane.showMessageDialog(null, "la transaccion es correcta");
-					item.cuenta.setSaldo(this.cuenta.getSaldo()-monto);
+					item.cuenta.setSaldo(item.cuenta.getSaldo()-monto);
 					LocalDateTime hora=LocalDateTime.now();
 					detalles= "Banco: Santender \n "
 							+ "Monto: "+ monto+"\n "

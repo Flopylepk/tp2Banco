@@ -111,14 +111,13 @@ public class Usuario {
 	public static String validarDni(String mensaeje) {
 		String palabra = "";
 		boolean flag;
-		int cont=0;
 		do {
 			flag=true;
 			palabra = JOptionPane.showInputDialog(mensaeje);
 			while (palabra.equals("")) {
 			palabra = JOptionPane.showInputDialog("Error: "+mensaeje);
 			}
-		
+			
 			for (int i = 0; i < palabra.length(); i++) {
 				if (!Character.isDigit(palabra.charAt(i))) {
 					flag=false;
@@ -128,7 +127,7 @@ public class Usuario {
 			if (palabra.length()<6) {
 				JOptionPane.showMessageDialog(null, "El DNI debe ser de más de 6 digitos", "Error",
 						JOptionPane.DEFAULT_OPTION,
-						new ImageIcon(Gerente.class.getResource("/img/x.jpg")));
+						new ImageIcon(Gerente.class.getResource("/img/xd.png")));
 				flag=false;
 			}
 		} while (!flag);

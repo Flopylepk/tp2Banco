@@ -20,7 +20,7 @@ public class Gerente extends Usuario {
 
 	@Override
 	public String toString() {
-		return "Gerente [banco=" + banco + ", toString()=" + super.toString() + "]";
+		return "Gerente [banco=" + banco + ", toString()=" + super.toString() + "] \n";
 	}
 
 	public void Registrarse() {
