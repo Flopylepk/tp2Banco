@@ -38,7 +38,7 @@ public class Cliente extends Usuario {
 
 	@Override
 	public String toString() {
-		return "Cliente [tipo=" + tipo + ", cuenta=" + cuenta + ", toString()=" + super.toString() + "] \n";
+		return "Cliente [tipo=" + tipo + ", cuenta=" + cuenta +"] \n";
 	}
 	
 	@Override
@@ -119,7 +119,7 @@ public class Cliente extends Usuario {
 			if (yo.getNombre().equals(this.getNombre())
 					&& yo.getContrasena().equals(this.getContrasena())) {
 				
-				double monto=validarNumeros("ingrese el monto que quiere retirar");
+				int monto=validarNumeros("ingrese el monto que quiere retirar");
 					JOptionPane.showMessageDialog(null, "la transaccion es correcta");
 					yo.cuenta.setSaldo(yo.cuenta.getSaldo()+monto);
 					LocalDateTime hora=LocalDateTime.now();
@@ -137,7 +137,7 @@ public class Cliente extends Usuario {
 		for (Cliente yo : Usuario.getClientes()) {
 			if (yo.getNombre().equals(this.getNombre())
 					&& yo.getContrasena().equals(this.getContrasena())) {
-				double monto=validarNumeros("ingrese el monto que quiere retirar");
+				int monto=validarNumeros("ingrese el monto que quiere retirar");
 				if (monto<yo.cuenta.getSaldo()) {
 					JOptionPane.showMessageDialog(null, "la transaccion es correcta");
 					yo.cuenta.setSaldo(yo.cuenta.getSaldo()-monto);

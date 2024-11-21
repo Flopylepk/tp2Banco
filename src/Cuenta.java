@@ -2,11 +2,11 @@ import java.util.LinkedList;
 
 public class Cuenta {
 	private int nroCuenta;
-	private double saldo;
+	private int saldo;
 	private String tarjeta;
 	private LinkedList<Movimintos> movimientos = new LinkedList<Movimintos>();
 
-	public Cuenta(int nroCuenta, double saldo, String tarjeta) {
+	public Cuenta(int nroCuenta, int saldo, String tarjeta) {
 		super();
 		this.nroCuenta = nroCuenta;
 		this.saldo = saldo;
@@ -22,11 +22,11 @@ public class Cuenta {
 		this.nroCuenta = nroCuenta;
 	}
 
-	public double getSaldo() {
+	public int getSaldo() {
 		return saldo;
 	}
 
-	public void setSaldo(double saldo) {
+	public void setSaldo(int saldo) {
 		this.saldo = saldo;
 	}
 

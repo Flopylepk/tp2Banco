@@ -63,7 +63,7 @@ public class Admin extends Usuario {
 		String contrasena = validarCaracteres("Ingrese la contraseña del cliente");
 		String tipo = validarCaracteres("ingrese el tipo de cliente");
 		int nrocuenta = (int) (Math.random() * 200);
-		double saldo = validarNumeros("ingrese el saldo del cliente");
+		int saldo = validarNumeros("ingrese el saldo del cliente");
 		String tarjeta = validarCaracteres("Ingrese la tarjeta del cliente");
 
 		Cuenta cuenta = new Cuenta(nrocuenta, saldo, tarjeta);
