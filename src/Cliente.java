@@ -70,41 +70,44 @@ public class Cliente extends Usuario {
 
 	public void Transferir(){
 		String detalles="";
-		for (Cliente item : Usuario.getClientes()) {
-			if (item.getNombre().equals(this.getNombre())
-					&& item.getContrasena().equals(this.getContrasena())) {
+		for (Cliente yo : Usuario.getClientes()) {
+			//Busco mi usuario si existe por el nombre en la lista de usuarios
+			if (yo.getNombre().equals(this.getNombre())&& yo.getContrasena().equals(this.getContrasena())) {
+				
 				String nombre=validarCaracteres("ingrese el nombre del usuario");
-				for (Cliente item2 : Usuario.getClientes()) {
-					if (item.getNombre().equals(nombre)) {
-						JOptionPane.showMessageDialog(null, "la transaccion es correcta", "Correcto",
-								JOptionPane.DEFAULT_OPTION,
-								new ImageIcon(Admin.class.getResource("/img/ok.png")));
-						double monto=validarNumeros("ingrese el monto que quiere transferir");
-						item.cuenta.setSaldo(item.cuenta.getSaldo()-monto);
+				//Guardo el nombre del usuario a transferir
+				for (Cliente receptor : Usuario.getClientes()) {
+					//Compruebo si existe el usuario con este nombre
+					if (receptor.getNombre().equals(nombre)) {
+						int monto=validarNumeros("ingrese el monto que quiere transferir");
+						yo.cuenta.setSaldo(yo.cuenta.getSaldo()-monto);
 						LocalDateTime hora=LocalDateTime.now();
 						detalles= "Banco: Santender \n "
 								+ "Monto: "+ monto+"\n "
 								+"Operacion: Transferencia"
-								+"Cuenta a transferir: "+item2.cuenta;
-						Movimintos movimientos1= new Movimintos(hora,item,detalles);
-						item.cuenta.getMovimientos().add(movimientos1);
+								+"Cuenta a transferir: "+receptor.cuenta.toString();
+						Movimintos movimientos1= new Movimintos(hora,yo,detalles);
+						yo.cuenta.getMovimientos().add(movimientos1);
 						
 						//cuenta2
-						item2.cuenta.setSaldo(this.cuenta.getSaldo()-monto);
+						receptor.cuenta.setSaldo(receptor.cuenta.getSaldo()+monto);
 						LocalDateTime hora2=LocalDateTime.now();
 						detalles= "Banco: Santender \n "
 								+ "Monto: "+ monto+"\n "
 								+"Operacion: Transferencia"
-								+"Cuenta que transfirio: "+item.cuenta;
-						Movimintos movimientos2= new Movimintos(hora2,item2,detalles);
-						item2.cuenta.getMovimientos().add(movimientos2);
+								+"Cuenta que transfirio: "+yo.cuenta.toString();
+						Movimintos movimientos2= new Movimintos(hora2,receptor,detalles);
+						receptor.cuenta.getMovimientos().add(movimientos2);
 						
-					}else {
-						JOptionPane.showMessageDialog(null, "Ese cliente no fue registrado por el administrador", "Error",
+						JOptionPane.showMessageDialog(null, "la transaccion es correcta", "Correcto",
 								JOptionPane.DEFAULT_OPTION,
-								new ImageIcon(Admin.class.getResource("/img/xd.png")));
+								new ImageIcon(Admin.class.getResource("/img/ok.png")));
+						return;
 					}
 				}
+				JOptionPane.showMessageDialog(null, "Ese cliente no fue registrado por el administrador", "Error",
+						JOptionPane.DEFAULT_OPTION,
+						new ImageIcon(Admin.class.getResource("/img/xd.png")));
 			}
 		}
 	}
@@ -112,38 +115,38 @@ public class Cliente extends Usuario {
 	public void Depositar(){
 		String detalles="";
 		
-		for (Cliente item : Usuario.getClientes()) {
-			if (item.getNombre().equals(this.getNombre())
-					&& item.getContrasena().equals(this.getContrasena())) {
+		for (Cliente yo : Usuario.getClientes()) {
+			if (yo.getNombre().equals(this.getNombre())
+					&& yo.getContrasena().equals(this.getContrasena())) {
 				
 				double monto=validarNumeros("ingrese el monto que quiere retirar");
 					JOptionPane.showMessageDialog(null, "la transaccion es correcta");
-					item.cuenta.setSaldo(item.cuenta.getSaldo()+monto);
+					yo.cuenta.setSaldo(yo.cuenta.getSaldo()+monto);
 					LocalDateTime hora=LocalDateTime.now();
 					detalles= "Banco: Santender \n "
 							+ "Monto: "+ monto+"\n "
 							+"Operacion: Deposito";
-					Movimintos movimientos= new Movimintos(hora,item,detalles);
-					item.cuenta.getMovimientos().add(movimientos);
+					Movimintos movimientos= new Movimintos(hora,yo,detalles);
+					yo.cuenta.getMovimientos().add(movimientos);
 			}
 		}
 	}
 	public  void Retirar() {
 		String detalles="";
 		
-		for (Cliente item : Usuario.getClientes()) {
-			if (item.getNombre().equals(this.getNombre())
-					&& item.getContrasena().equals(this.getContrasena())) {
+		for (Cliente yo : Usuario.getClientes()) {
+			if (yo.getNombre().equals(this.getNombre())
+					&& yo.getContrasena().equals(this.getContrasena())) {
 				double monto=validarNumeros("ingrese el monto que quiere retirar");
-				if (monto<item.cuenta.getSaldo()) {
+				if (monto<yo.cuenta.getSaldo()) {
 					JOptionPane.showMessageDialog(null, "la transaccion es correcta");
-					item.cuenta.setSaldo(item.cuenta.getSaldo()-monto);
+					yo.cuenta.setSaldo(yo.cuenta.getSaldo()-monto);
 					LocalDateTime hora=LocalDateTime.now();
 					detalles= "Banco: Santender \n "
 							+ "Monto: "+ monto+"\n "
 							+"Operacion: Retiro";
-					Movimintos movimientos= new Movimintos(hora,item,detalles);
-					item.cuenta.getMovimientos().add(movimientos);
+					Movimintos movimientos= new Movimintos(hora,yo,detalles);
+					yo.cuenta.getMovimientos().add(movimientos);
 				} else {
 					JOptionPane.showMessageDialog(null, "Usted no tiene el saldo suficiente", "Error",
 							JOptionPane.DEFAULT_OPTION,
@@ -154,15 +157,19 @@ public class Cliente extends Usuario {
 	}
 	
 	public void Mostrar() {
-		for (Cliente item : Usuario.getClientes()) {
-			if (item.getNombre().equals(this.getNombre())
-					&& item.getContrasena().equals(this.getContrasena())) {
-				if (item.cuenta.getMovimientos().isEmpty()) {
+		for (Cliente yo : Usuario.getClientes()) {
+			if (yo.getNombre().equals(this.getNombre())
+					&& yo.getContrasena().equals(this.getContrasena())) {
+				if (yo.cuenta.getMovimientos().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Usted no tiene nada en los movimientos", "Error",
 							JOptionPane.DEFAULT_OPTION,
 							new ImageIcon(Admin.class.getResource("/img/xd.png")));
 				} else {
-					JOptionPane.showMessageDialog(null, item.cuenta.getMovimientos());
+					String detalles = "";
+					for (Movimintos movimiento : yo.cuenta.getMovimientos()) {
+						detalles = detalles + movimiento + "\n";
+					}
+					JOptionPane.showMessageDialog(null, detalles);
 				}
 			
 			}
