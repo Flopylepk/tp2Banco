@@ -15,6 +15,7 @@ public class Main {
 		String[] menug = { "Registrarse", "Registrar admin", "Ver usuarios", "Salir" };
 		String[] menua = { "Registrar Cliente", "Ver Cliente", "Salir" };
 		String[] menuc = { "Operaciones", "Ver operaciones", "Salir" };
+		String[] menuc2 = { "Todos", "Buscar por nombre" };
 
 		int opcion = 0;
 		int opciong = 0;
@@ -22,6 +23,7 @@ public class Main {
 		int opciona = 0;
 		int opcions = 0;
 		int opciono = 0;
+		int opcions2 = 0;
 
 		boolean ad = false;
 		boolean cl = false;
@@ -133,7 +135,17 @@ public class Main {
 											JOptionPane.DEFAULT_OPTION,
 											new ImageIcon(Main.class.getResource("/img/xd.png")));
 								} else {
-									JOptionPane.showMessageDialog(null, Usuario.getClientes());
+									opcions2=JOptionPane.showOptionDialog(null, "Elija que quiere ver", null, 0, 0, null, menuc2, menuc2[0]);
+									switch (opcions2) {
+									case 0:
+										JOptionPane.showMessageDialog(null, Usuario.getClientes());
+										break;
+									case 1:
+										admin.buscar();
+										break;
+
+									}
+									
 								}
 							}
 							break;

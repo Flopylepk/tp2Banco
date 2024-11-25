@@ -35,7 +35,7 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 
-	public String getDni() {
+	public String getDni() { 
 		return dni;
 	}
 

@@ -87,6 +87,20 @@ public class Admin extends Usuario {
 				new ImageIcon(Admin.class.getResource("/img/ok.png")));
 
 	}
+	
+	public void buscar() {
+		String criterio=validarCaracteres("ingrese el nombre de la cuenta");
+		for (Cliente elemento : Usuario.getClientes()) {
+			 if (elemento.getNombre().equals(criterio)) {
+					JOptionPane.showMessageDialog(null, elemento);
+					return;
+				}
+			}
+		JOptionPane.showMessageDialog(null, "Ese cliente no esta registrado", "Error",
+				JOptionPane.DEFAULT_OPTION,
+				new ImageIcon(Main.class.getResource("/img/xd.png")));
+		return;
+	}
 
 	@Override
 	public String toString() {
